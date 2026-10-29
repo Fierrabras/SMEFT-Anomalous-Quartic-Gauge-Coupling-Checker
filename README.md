@@ -150,3 +150,9 @@ The required Python code and data are in `aqgc/`; the required Mathematica code 
 ## AI disclosure
 
 ChatGPT (OpenAI), through a GPT-6-based Codex assistant, was used to assist with the construction, organization, and syntax of this code.
+
+## Referencing this work
+
+Please reference this repository and the preprint/published article if you use this code:
+
+@article{...}
