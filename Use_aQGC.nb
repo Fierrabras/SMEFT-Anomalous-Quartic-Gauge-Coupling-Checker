@@ -1,0 +1,48 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+Notebook[{
+Cell["aQGC constraint checker - 1.0.0", "Title"],
+
+Cell["Evaluate this notebook from the top in a fresh kernel. Keep the wolfram folder beside this notebook. See README.md for usage and the scope of the implemented bounds.", "Text"],
+
+Cell["1. Load the package", "Section"],
+
+Cell[BoxData[RowBox[{"Get", "[", "FileNameJoin", "[", "{", "NotebookDirectory", "[", "]", ",", "\"wolfram\"", ",", "\"AQGC.wl\"", "}", "]", "]", ";"}]], "Input"],
+
+Cell["2. Set the inputs", "Section"],
+
+Cell["Enter dimensionless Wilson coefficients with case-sensitive string keys. Both Lambda and Ecm are in TeV. The exact accepted names are:", "Text"],
+
+Cell["S: FS0, FS1, FS2.", "Text"],
+
+Cell["CP-even M: FM0, FM1, FM2, FM3, FM4, FM5, FM7, FM8, FM9.", "Text"],
+
+Cell["CP-even T: FT0, FT1, FT2, FT3, FT4, FT5, FT6, FT7, FT8, FT9.", "Text"],
+
+Cell["CP-odd M: FM1odd, FM2odd, FM3odd, FM4odd, FM5odd, FM6odd.", "Text"],
+
+Cell["CP-odd T: FT1odd, FT2odd, FT3odd, FT4odd, FT5odd, FT6odd.", "Text"],
+
+Cell["You do not need to enter all 34 coefficients. Every coefficient you omit is set to zero. The example below sets FS0, FM1, FT9, and FT1odd; the remaining 30 coefficients are zero. Separate entries with commas, using \"name\" -> value inside <|...|>. There is no FM6; unknown names are rejected.", "Text"],
+
+Cell["Modes: NaiveSingle (single-operator unitarity), NaiveCombined (combined-operator unitarity), FinalCombined (positivity-constrained unitarity), and Positivity. Select one string, a list of strings, or All. FinalCombined includes positivity; positivity alone needs no energies.", "Text"],
+
+Cell["The Phi4 sector checks FS0 >= 0, FS0 + FS2 >= 0, and FS0 + FS1 + FS2 >= 0 whenever positivity is evaluated. All three unitarity modes contain limits for all 34 coefficients. For the S operators, combined unitarity includes J=0 and J=1. The constants for FS0, FS1, FS2 are (224/5)*Pi, (288/5)*Pi, (288/5)*Pi in NaiveCombined, and (224/5)*Pi, (288/5)*Pi, 48*Pi in FinalCombined, before the common (Lambda/Ecm)^4 factor.", "Text"],
+
+Cell["The authors independently calculated these bounds. The S-sector J=0 results agree with Physical Review D 101, 113003 (2020), arXiv:2004.05174; their S-sector positivity combinations agree with JHEP 12 (2019) 032, arXiv:1908.09845. See README.md for references, the additional J=1 tightening, and the boundary convention.", "Text"],
+
+Cell[BoxData[RowBox[{"coefficients", "=", "<|", "\[IndentingNewLine]", "\"FS0\"", "->", "1", "/", "2", ",", "\[IndentingNewLine]", "\"FM1\"", "->", "1", ",", "\[IndentingNewLine]", "\"FT9\"", "->", "1", "/", "2", ",", "\[IndentingNewLine]", "\"FT1odd\"", "->", "1", "/", "10", "\[IndentingNewLine]", "|>", ";"}]], "Input"],
+
+Cell[BoxData[RowBox[{"modes", "=", "{", "\"NaiveSingle\"", ",", "\"NaiveCombined\"", ",", "\"Positivity\"", "}", ";"}]], "Input"],
+
+Cell[BoxData[RowBox[{"lambdaTeV", "=", "5", "/", "2", ";", "ecmTeV", "=", "2", ";"}]], "Input"],
+
+Cell["3. Run the checks", "Section"],
+
+Cell[BoxData[RowBox[{"result", "=", "AQGC`CheckAQGC", "[", "coefficients", ",", "modes", ",", "\"LambdaTeV\"", "->", "lambdaTeV", ",", "\"EcmTeV\"", "->", "ecmTeV", "]", ";"}]], "Input"],
+
+Cell[BoxData[RowBox[{"AQGC`ShowAQGCReport", "[", "result", "]"}]], "Input"],
+
+Cell["The report shows nonzero coefficients and all non-passing conditions. The result Association retains all records. Use AQGC`ShowAQGCReport[result, \"ShowAll\" -> True] for the full table.", "Text"],
+
+Cell["Named formulas remain available: AQGC`unitarityNaiveSingleFM1 gives the unitarity constant before the energy factor; AQGC`positivityB4 and AQGC`positivityPhi4 give Associations of symbolic positivity residuals. Inspect the S-operator results with result[\"Positivity\"][\"Phi4\"].", "Text"]
+}, WindowTitle -> "aQGC 1.0.0", WindowSize -> {1100, 800}, StyleDefinitions -> "Default.nb"]
