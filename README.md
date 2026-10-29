@@ -153,6 +153,21 @@ ChatGPT (OpenAI), through a GPT-6-based Codex assistant, was used to assist with
 
 ## Referencing this work
 
-Please reference this repository and the preprint/published article if you use this code:
+Please reference this repository and the preprints/published articles listed below if you use this code:
 
 @article{...}
+
+@article{Almeida:2020ylr,
+    author = "Almeida, Eduardo da Silva and {\'E}boli, O. J. P. and Gonzalez{\textendash}Garcia, M. C.",
+    title = "{Unitarity constraints on anomalous quartic couplings}",
+    eprint = "2004.05174",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "YITP-SB-2020-8",
+    doi = "10.1103/PhysRevD.101.113003",
+    journal = "Phys. Rev. D",
+    volume = "101",
+    number = "11",
+    pages = "113003",
+    year = "2020"
+}
