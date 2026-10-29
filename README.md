@@ -155,6 +155,14 @@ ChatGPT (OpenAI), through a GPT-6-based Codex assistant, was used to assist with
 
 Please reference this repository and the preprints/published articles listed below if you use this code:
 
+@misc{aQGCchecker,
+  author = "{\'E}boli, Oscar J. P. and Lozano-Onrubia, {\'A}. and Rosende Herrero, S.",
+  title        = {{SMEFT Anomalous Quartic Gauge Coupling Checker}},
+  howpublished = {\url{https://github.com/Fierrabras/SMEFT-Anomalous-Quartic-Gauge-Coupling-Checker}},
+  year         = {2026},
+  note         = {Version 1.0.0}
+}
+
 @article{...}
 
 @article{Almeida:2020ylr,
