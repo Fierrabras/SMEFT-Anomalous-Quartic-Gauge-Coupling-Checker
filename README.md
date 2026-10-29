@@ -149,7 +149,7 @@ The required Python code and data are in `aqgc/`; the required Mathematica code 
 
 ## AI disclosure
 
-ChatGPT (OpenAI), through a GPT-6-based Codex assistant, was used to assist with the construction, organization, and syntax of this code.
+ChatGPT (OpenAI), through a GPT-6-based Codex assistant, was used to assist with the construction and syntax of this code. The code has been successfully checked against the results tabulated in the original references.
 
 ## Referencing this work
 
