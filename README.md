@@ -1,8 +1,6 @@
 # aQGC coefficient-bound checker - 1.0.0
 
-Evaluate the supplied unitarity and positivity bounds for 34 dimensionless Wilson coefficients, using Python or Mathematica. Each interface runs independently.
-
-After replacing package files, restart the Python or Mathematica kernel before running the checks.
+Evaluates the supplied unitarity and positivity bounds for 34 dimensionless Wilson coefficients, using Python or Mathematica. Each interface runs independently.
 
 ## Python
 
